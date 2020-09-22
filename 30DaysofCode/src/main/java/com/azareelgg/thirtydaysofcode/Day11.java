@@ -1,14 +1,11 @@
 package com.azareelgg.thirtydaysofcode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class Day11 {
     private static final int _MAX = 6; // size of matrix
     private static final int _OFFSET = 2; // hourglass width
-    private static int matrix[][] = new int[_MAX][_MAX];
+    private static final int[][] matrix = new int[_MAX][_MAX];
     private static int maxHourglass = -63; // initialize to lowest possible sum (-9 x 7)
 
     /** Given a starting index for an hourglass, sets maxHourglass
