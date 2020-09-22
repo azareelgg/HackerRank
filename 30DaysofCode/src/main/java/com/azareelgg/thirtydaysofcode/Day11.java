@@ -1,46 +1,51 @@
 package com.azareelgg.thirtydaysofcode;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Day11 {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final int _MAX = 6; // size of matrix
+    private static final int _OFFSET = 2; // hourglass width
+    private static int matrix[][] = new int[_MAX][_MAX];
+    private static int maxHourglass = -63; // initialize to lowest possible sum (-9 x 7)
+
+    /** Given a starting index for an hourglass, sets maxHourglass
+     *   @param i row
+     *   @param j column
+     **/
+    private static void hourglass(int i, int j){
+        int tmp = 0; // current hourglass sum
+        for(int k = j; k <= j + _OFFSET; k++){
+            tmp += matrix[i][k]; // top 3 elements
+            tmp += matrix[i + _OFFSET][k]; // bottom 3 elements
+        }
+        tmp += matrix[i + 1][j + 1]; // middle element
+
+        if(maxHourglass < tmp){
+            maxHourglass = tmp;
+        }
+    }
 
     public static void main(String[] args) {
-        int[][] arr = new int[][]{
-                {1,1,1,1,1,0},
-                {0,1,0,0,0,0},
-                {1,1,1,1,1,0},
-                {0,1,0,1,0,0},
-                {0,1,0,0,1,0},
-                {0,0,2,0,2,4}
-        };
-/*
-        for (int i = 0; i < 6; i++) {
-            String[] arrRowItems = scanner.nextLine().split(" ");
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-            for (int j = 0; j < 6; j++) {
-                int arrItem = Integer.parseInt(arrRowItems[j]);
-                arr[i][j] = arrItem;
+        // read inputs
+        Scanner scan = new Scanner(System.in);
+        for(int i=0; i < _MAX; i++){
+            for(int j=0; j < _MAX; j++){
+                matrix[i][j] = scan.nextInt();
             }
         }
-*/
-        int x = 0, y = 0,r = 0, jump = 0;
-        for(int w = 0; w <= 3; w++){
+        scan.close();
 
-            for (x = 0; x <= 5; x++) {
-
-                for (y = 0; y <= 2; y++) {
-                    if ((x == 1 || x == 5) && (y == 0 || y == 2 || y == 3 || y == 5)) {
-                        continue;
-                    } else {
-                        r += arr[x][y];
-                    }
-                }
+        // find maximum hourglass
+        for(int i=0; i < _MAX - _OFFSET; i++){
+            for(int j=0; j < _MAX - _OFFSET; j++){
+                hourglass(i, j);
             }
-            jump = 3;
         }
 
-        scanner.close();
+        // print maximum hourglass
+        System.out.println(maxHourglass);
     }
 }
