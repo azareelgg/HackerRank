@@ -19,31 +19,31 @@ public class Day27 {
 
     static class TestDataEmptyArray {
         public static int[] get_array() {
-            // complete this function
-            return null;
+            return new int[]{};
         }
     }
 
     static class TestDataUniqueValues {
+
+        static int[] arr = {1,2,3,4};
+
         public static int[] get_array() {
-            // complete this function
-            return null;
+            return arr;
         }
 
         public static int get_expected_result() {
-            // complete this function
             return 0;
         }
     }
 
     static class TestDataExactlyTwoDifferentMinimums {
+
+        static int[] arr = {0,0,1};
         public static int[] get_array() {
-            // complete this function
-            return null;
+            return arr;
         }
 
         public static int get_expected_result() {
-            // complete this function
             return 0;
         }
     }
@@ -66,9 +66,9 @@ public class Day27 {
 
         Integer[] tmp = new Integer[seq.length];
         for (int i = 0; i < seq.length; ++i) {
-            tmp[i] = Integer.valueOf(seq[i]);
+            tmp[i] = seq[i];
         }
-        if (!((new LinkedHashSet<Integer>(Arrays.asList(tmp))).size() == seq.length)) {
+        if (!((new LinkedHashSet<>(Arrays.asList(tmp))).size() == seq.length)) {
             throw new AssertionError("not all values are unique");
         }
 
