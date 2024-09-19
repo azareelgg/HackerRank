@@ -19,7 +19,7 @@ public class JumpingOnTheClouds {
 		System.out.println(jumpingOnClouds(c));
 	}
 	
-	
+	//https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
 	public static int jumpingOnClouds(List<Integer> c) {
 		
 		int index = 0;
