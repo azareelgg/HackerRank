@@ -1,4 +1,4 @@
-package com.azareelgg.hackerRank.preparation;
+package com.azareelgg.hackerRank.interviewPreparation;
 
 import java.util.ArrayList;
 import java.util.HashSet;
