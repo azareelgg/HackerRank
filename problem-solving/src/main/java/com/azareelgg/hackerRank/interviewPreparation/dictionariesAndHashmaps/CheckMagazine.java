@@ -9,15 +9,19 @@ public class CheckMagazine {
 	public static void main(String[] args) {
 
 		List<String> magazine = new ArrayList<>();
-		/*magazine.add(1);
-		magazine.add(1);
-		magazine.add(1);
-		magazine.add(0);
-		magazine.add(0);*/
-		magazine.add("hello");
+		magazine.add("two");
+		magazine.add("times");
+		magazine.add("three");
+		magazine.add("is");
+		magazine.add("not");
+		magazine.add("four");
 		
 		List<String> note = new ArrayList<>();
-		note.add("hello1");
+		note.add("two");
+		note.add("times");
+		note.add("two");
+		note.add("is");
+		note.add("four");
 
 		checkMagazine(magazine, note);
 	}
