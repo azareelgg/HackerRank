@@ -15,8 +15,27 @@ public class Brackets {
 
     }
     public static void brackets(String input){
-        //Map = new HashMap<Character, Character>();
-
-
+        Map<Character, Character> map = new HashMap<Character, Character>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
+        
+        boolean flag = false;
+        Character key,val;
+        
+        for(int i = 0; i < input.length() / 2; i++) {
+        	
+        	key = input.charAt(i);
+        	val = map.get(key);
+        	
+        	if(val == input.charAt(i + 1) || val == input.charAt(input.length() - i - 1)) {
+        		flag = true;
+        		i++;
+        	}else {
+        		break;
+        	}
+        	
+        }
+        System.out.println(flag);
     }
 }
