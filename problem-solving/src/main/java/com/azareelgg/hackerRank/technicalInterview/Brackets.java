@@ -1,4 +1,4 @@
-package com.azareelgg.hackerRank.interviewPreparation.miscellaneous;
+package com.azareelgg.hackerRank.technicalInterview;
 import java.util.*;
 
 public class Brackets {
